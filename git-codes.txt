@@ -2,3 +2,4 @@ git status
 git add -u
 git commit -m "message"
 git push -o origin main
+git push

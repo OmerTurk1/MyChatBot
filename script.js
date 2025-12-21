@@ -17,7 +17,7 @@ async function submitForm() {
 function aiAnswer(answer){
     const aiMessage = document.createElement("div");
     aiMessage.classList.add("message", "ai");
-    aiMessage.textContent = answer;
+    aiMessage.innerHTML = marked.parse(answer);
     return aiMessage;
 }
 async function send(message) {

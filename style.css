@@ -63,7 +63,7 @@ body {
 }
 
 .canvas {
-  padding: 5px 7px;
+  padding: 5px;
   background: #585858b6;
   color: white;
   border-radius: 6px;
@@ -74,6 +74,19 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+}
+
+.copyBtn {
+  margin-left: 8px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 8px;
+  background: #28b75a;
+  color: white;
+  cursor: pointer;
+}
+.copyBtn:hover {
+  background: #1e8441;
 }
 
 #chat-input {
@@ -101,5 +114,5 @@ body {
 }
 
 #chat-input button:hover {
-  background: #4338ca;
+  background: rgb(49, 40, 145);
 }

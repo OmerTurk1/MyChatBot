@@ -7,17 +7,23 @@ async function submitForm() {
     input.value = "";
     input.focus();
     try{
-        const answer = await send(userMessage.textContent);
-        chat.appendChild(aiAnswer(answer));
+        const data = await send(userMessage.textContent);
+        chat.appendChild(aiAnswer(data));
     }
     catch{
         console.log("Error!!!");
     } 
 }
-function aiAnswer(answer){
+function aiAnswer(data){
     const aiMessage = document.createElement("div");
     aiMessage.classList.add("message", "ai");
-    aiMessage.innerHTML = marked.parse(answer);
+    aiMessage.innerHTML = marked.parse(data.answer);
+    const pres = aiMessage.querySelectorAll('pre');
+    console.log(pres);
+    pres.forEach(pre => {
+      pre.classList.add('language');
+    });
+
     return aiMessage;
 }
 async function send(message) {
@@ -30,8 +36,8 @@ async function send(message) {
   });
 
   const data = await res.json();
-  console.log(data.answer);
-  return data.answer;
+  console.log(data);
+  return data;
 }
 const input = document.getElementById("userInput");
 const chat = document.getElementById("chat-messages");

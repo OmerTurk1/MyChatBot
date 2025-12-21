@@ -62,6 +62,13 @@ body {
   align-self: flex-end;
 }
 
+.language {
+  padding: 5px 7px;
+  background: #585858b6;
+  color: white;
+  border-radius: 6px;
+}
+
 #chat-input {
   display: flex;
   padding: 10px;

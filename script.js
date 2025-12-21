@@ -2,7 +2,9 @@ async function submitForm() {
     if (input.value.trim() === "") return;
     const userMessage = document.createElement("div");
     userMessage.classList.add("message", "user");
-    userMessage.textContent = input.value;
+    const user_p = document.createElement("p");
+    user_p.textContent = input.value;
+    userMessage.appendChild(user_p);
     chat.appendChild(userMessage);
     input.value = "";
     input.focus();
@@ -19,9 +21,17 @@ function aiAnswer(data){
     aiMessage.classList.add("message", "ai");
     aiMessage.innerHTML = marked.parse(data.answer);
     const pres = aiMessage.querySelectorAll('pre');
+    const codes = aiMessage.qu
     console.log(pres);
     pres.forEach(pre => {
-      pre.classList.add('language');
+      pre.classList.add('canvas');
+      const codes = pre.querySelectorAll('code');
+      codes.forEach(code => {
+        code.classList.forEach(cls => {
+          code.classList.remove(cls);
+        });
+        code.classList.add('language');
+      });
     });
 
     return aiMessage;

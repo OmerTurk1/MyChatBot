@@ -43,7 +43,7 @@ body {
 
 .message {
   max-width: 75%;
-  padding: 10px 14px;
+  padding: 0px 14px;
   margin-bottom: 10px;
   border-radius: 12px;
   font-size: 14px;
@@ -62,11 +62,18 @@ body {
   align-self: flex-end;
 }
 
-.language {
+.canvas {
   padding: 5px 7px;
   background: #585858b6;
   color: white;
   border-radius: 6px;
+}
+
+.language {
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 #chat-input {

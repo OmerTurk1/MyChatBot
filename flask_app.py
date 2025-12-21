@@ -3,6 +3,7 @@ from flask_cors import CORS
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
+import json
 
 load_dotenv()
 

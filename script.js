@@ -10,6 +10,14 @@ async function submitForm() {
   userMessage.appendChild(user_p);
   chat.appendChild(userMessage);
 
+  // ai text message filler
+  const aitexting = document.createElement("div");
+  aitexting.classList.add("message","ai");
+  const filler = document.createElement("i");
+  filler.textContent = "...";
+  aitexting.appendChild(filler);
+  chat.appendChild(aitexting);
+
   // updates before ai message
   input.value = "";
   input.focus();
@@ -18,6 +26,7 @@ async function submitForm() {
   // taking ai message
   try{
     const data = await send(userMessage.textContent);
+    chat.lastElementChild?.remove();
     chat.appendChild(aiAnswer(data));
   }
   catch{
@@ -42,6 +51,10 @@ function aiAnswer(data){
   const codes = aiMessage.qu
   console.log(pres);
   pres.forEach(pre => {
+
+    //hr is created
+    const line = document.createElement("hr");
+    pre.appendChild(line);
 
     // button is created
     const copyBtn = document.createElement("button");

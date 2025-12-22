@@ -33,10 +33,6 @@ async function submitForm() {
     console.log("Error!!!");
   }
 
-  // save chat
-  // json dosyasına şunlar yazılacak:
-  // "user":user message, "ai":ai message
-
   // scroll to end
   chat.scrollTop = chat.scrollHeight;
 }
@@ -48,7 +44,6 @@ function aiAnswer(data){
 
   // select pres and codes for assigning classes
   const pres = aiMessage.querySelectorAll('pre');
-  const codes = aiMessage.qu
   console.log(pres);
   pres.forEach(pre => {
 
@@ -79,19 +74,32 @@ function aiAnswer(data){
   return aiMessage;
 }
 async function send(message) {
-  // send request
-  const res = await fetch("http://localhost:5000/ask", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ message })
-  });
+  try{
+    // send request
+    const res = await fetch("http://localhost:5000/ask", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message })
+    });
 
-  // pull answer
-  const data = await res.json();
-  console.log(data);
-  return data;
+    // pull answer
+    const data = await res.json();
+    console.log(data);
+    return data;
+  }
+  catch(err){
+    if (err.name === "TypeError") {
+      console.error("Could not access to Server");
+    }
+    else if (err.message === "SERVER_ERROR") {
+      console.error("Server returned an Error");
+    } 
+    else {
+      console.error("Unknown Error:", err);
+    }
+  }
 }
 const input = document.getElementById("userInput");
 const chat = document.getElementById("chat-messages");

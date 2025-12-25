@@ -22,8 +22,8 @@ The backend logic in flask_app.py manages a "rolling window" of context. Every t
 - The new response is appended to the JSON file, ensuring the bot "remembers" you (e.g., remembering your name is Ömer).
 
 ## 🏗️ Project Structure
----bash
-Project/
+
+.Project/
 ├── app/
 │   └── flask_app.py    # Python Backend (Flask)
 ├── history/
@@ -31,7 +31,6 @@ Project/
 ├── index.html          # Frontend structure
 ├── style.css           # Custom UI styling
 └── script.js           # Frontend logic & API handling
----
 
 ## 🛠️ Tech Stack
 
@@ -42,3 +41,4 @@ Project/
     - flask-cors: To handle cross-origin requests.
 
     - python-dotenv: For secure environment variable management.
+

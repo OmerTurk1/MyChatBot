@@ -8,7 +8,7 @@ import json
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)  # frontend başka porttaysa gerekli
+CORS(app)  # if frontend is in another port
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,32 +21,42 @@ def ask():
     data = request.json
     user_message = data.get("message")
 
+    hist = load_history()
+
+    if len(hist)>=10:
+        back_message = hist[:9] # son 10 mesaj
+    else:
+        back_message = hist
+
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": user_message}
+            {"role": "user", "content": f"""
+             last 10 messages: {back_message}
+             user question: {user_message}
+             answer user's question based on last chats.
+             """}
         ]
     )
 
     answer = response.choices[0].message.content
 
-    print("yazacak")
-    # history yönetimi
-    save_log(user_message,answer)
-    # history yönetimi bitti
-    print("yazdı")
+    save_history(user_message,answer,hist)
+
     return jsonify({
         "answer": answer
     })
 
-def save_log(user_message, answer):
+def load_history():
     if not os.path.exists(hist_file) or os.stat(hist_file).st_size == 0:
         hist = []
     else:
         with open(hist_file, "r", encoding="utf-8") as f:
             hist = json.load(f)
+    return hist
 
+def save_history(user_message, answer, hist):
     hist.append({
         "user": user_message,
         "ai": answer

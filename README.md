@@ -32,6 +32,27 @@ The backend logic in flask_app.py manages a "rolling window" of context. Every t
 ├── style.css           # Custom UI styling
 └── script.js           # Frontend logic & API handling
 
+```bash
+├── app
+│   ├── css
+│   │   ├── **/*.css
+│   ├── favicon.ico
+│   ├── images
+│   ├── index.html
+│   ├── js
+│   │   ├── **/*.js
+│   └── partials/template
+├── dist (or build)
+├── node_modules
+├── bower_components (if using bower)
+├── test
+├── Gruntfile.js/gulpfile.js
+├── README.md
+├── package.json
+├── bower.json (if using bower)
+└── .gitignore
+```
+
 ## 🛠️ Tech Stack
 
 - Frontend: HTML5, CSS3, JavaScript (ES6+).
@@ -41,4 +62,5 @@ The backend logic in flask_app.py manages a "rolling window" of context. Every t
     - flask-cors: To handle cross-origin requests.
 
     - python-dotenv: For secure environment variable management.
+
 

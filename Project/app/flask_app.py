@@ -13,7 +13,7 @@ CORS(app)  # if frontend is in another port
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-HISTORY_DIR = os.path.join(BASE_DIR, "history")
+HISTORY_DIR = os.path.join(BASE_DIR, "data")
 hist_file = os.path.join(HISTORY_DIR, "hist.json")
 
 @app.route("/ask", methods=["POST"])
@@ -24,7 +24,7 @@ def ask():
     hist = load_history()
 
     if len(hist)>=10:
-        back_message = hist[:9] # son 10 mesaj
+        back_message = hist[:10] # last 10 messages
     else:
         back_message = hist
 
@@ -67,4 +67,4 @@ def save_history(user_message, answer, hist):
 
 if __name__ == "__main__":
     app.run(debug=False, port=5000)
-    print("bitti")
+    print("finished")

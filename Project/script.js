@@ -44,7 +44,6 @@ function aiAnswer(data){
 
   // select pres and codes for assigning classes
   const pres = aiMessage.querySelectorAll('pre');
-  console.log(pres);
   pres.forEach(pre => {
 
     //hr is created

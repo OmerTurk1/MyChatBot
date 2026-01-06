@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Chat AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    
+</head>
+<body class="mesh-bg h-screen flex overflow-hidden">
+
+    <aside class="w-72 glass flex flex-col hidden md:flex border-r border-slate-700">
+        <div class="p-5 font-bold text-xl tracking-tight border-b border-slate-700 flex items-center gap-2">
+            <i class="fas fa-bolt text-blue-400"></i> ChatAI Pro
+        </div>
+        <div class="flex-1 overflow-y-auto p-3 space-y-2">
+            <p class="text-xs text-slate-500 font-semibold px-3 py-2">GEÇMİŞ YAZIŞMALAR</p>
+            <div class="sidebar-item p-3 rounded-xl cursor-pointer transition flex items-center gap-3">
+                <i class="far fa-comment-alt text-slate-400 text-sm"></i>
+                <span class="text-sm truncate">Web Tasarım Fikirleri</span>
+            </div>
+            <div class="sidebar-item p-3 rounded-xl cursor-pointer transition flex items-center gap-3">
+                <i class="far fa-comment-alt text-slate-400 text-sm"></i>
+                <span class="text-sm truncate">Python Veri Analizi</span>
+            </div>
+            <div class="sidebar-item p-3 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center gap-3">
+                <i class="far fa-comment-alt text-blue-400 text-sm"></i>
+                <span class="text-sm truncate">Chatbot Arayüz Tasarımı</span>
+            </div>
+        </div>
+        <div class="p-4 border-t border-slate-700">
+            <button class="w-full py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm transition">
+                <i class="fas fa-plus mr-2"></i> Yeni Sohbet
+            </button>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col relative">
+        
+        <header class="h-16 flex items-center justify-between px-8 border-b border-slate-800/50">
+            <div class="text-slate-400 text-sm">Model: <span class="text-white font-medium">OpenAI GPT 4o mini</span></div>
+            <div class="flex items-center gap-4">
+                <button class="text-slate-400 hover:text-white transition"><i class="far fa-bell text-lg"></i></button>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 p-[2px] cursor-pointer">
+                    <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center border-2 border-slate-900">
+                        <i class="fas fa-user text-sm text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="flex-1 overflow-y-auto p-6 space-y-6 max-w-5xl mx-auto w-full">
+            <div class="flex gap-4">
+                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center shrink-0">
+                    <i class="fas fa-robot text-xs text-white"></i>
+                </div>
+                <div class="max-w-[70%] glass p-4 rounded-2xl rounded-tl-none text-slate-200 leading-relaxed">
+                    Merhaba! İstediğin modern chatbot arayüzünü senin için hazırladım. Solda geçmiş paneli, sağ üstte profil ikonun hazır. Başka ne eklememi istersin?
+                </div>
+            </div>
+
+            <div class="flex gap-4 justify-end">
+                <div class="max-w-[70%] bg-blue-600 p-4 rounded-2xl rounded-tr-none text-white leading-relaxed">
+                    Harika görünüyor! Özellikle cam efekti ve renk paleti çok hoşuma gitti.
+                </div>
+            </div>
+        </section>
+
+        <footer class="p-6 max-w-4xl mx-auto w-full">
+            <div class="relative group">
+                <input type="text" placeholder="Bir şeyler yazın..." 
+                    class="w-full glass py-4 px-6 pr-16 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all placeholder:text-slate-500">
+                <button class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-blue-600 hover:bg-blue-500 rounded-xl flex items-center justify-center transition">
+                    <i class="fas fa-paper-plane text-sm"></i>
+                </button>
+            </div>
+            <p class="text-[8px] text-center text-slate-500 mt-3 uppercase tracking-widest">AI tarafından üretilen içerikler hatalı olabilir. Kullanmadan önce ikinci bir değerlendirmede bulununuz</p>
+        </footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

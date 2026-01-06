@@ -1,0 +1,14 @@
+[
+    {
+        "user": "sg",
+        "ai": "It seems that there are no previous messages or context to refer to. Could you please provide more details or clarify what you mean by \"sg\"? I'm here to help!"
+    },
+    {
+        "user": "nasılsın?",
+        "ai": "Ben bir yapay zeka olduğum için duygularım yok, ama size yardımcı olmak için buradayım! Siz nasılsınız?"
+    },
+    {
+        "user": "bir python kodu yazar mısın? ne olduğu önemli değil",
+        "ai": "Tabii! İşte basit bir Python kodu, bu kod belirli bir sayının faktöriyelini hesaplar. Kullanıcıdan bir sayı alır ve faktöriyelini hesaplar.\n\n```python\ndef faktoriyel(n):\n    if n < 0:\n        return \"Negatif sayıların faktöriyeli tanımsızdır.\"\n    elif n == 0 or n == 1:\n        return 1\n    else:\n        sonuc = 1\n        for i in range(2, n + 1):\n            sonuc *= i\n        return sonuc\n\n# Kullanıcıdan bir sayı alma\nsayi = int(input(\"Faktöriyelini hesaplamak istediğiniz sayıyı girin: \"))\nprint(f\"{sayi} sayısının faktöriyeli: {faktoriyel(sayi)}\")\n```\n\nBu kod, bir kullanıcıdan bir sayı alır ve o sayının faktöriyelini hesaplar. Herhangi bir sorunuz varsa sormaktan çekinmeyin!"
+    }
+]

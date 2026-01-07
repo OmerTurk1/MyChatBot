@@ -13,22 +13,10 @@
 
     <aside class="w-72 glass flex flex-col hidden md:flex border-r border-slate-700">
         <div class="p-5 font-bold text-xl tracking-tight border-b border-slate-700 flex items-center gap-2">
-            <i class="fas fa-bolt text-blue-400"></i> ChatAI Pro
+            <i class="fas fa-bolt text-blue-400"></i> MyChatBot
         </div>
-        <div class="flex-1 overflow-y-auto p-3 space-y-2">
+        <div id="chat-list" class="flex-1 overflow-y-auto p-3 space-y-2">
             <p class="text-xs text-slate-500 font-semibold px-3 py-2">GEÇMİŞ YAZIŞMALAR</p>
-            <div class="sidebar-item p-3 rounded-xl cursor-pointer transition flex items-center gap-3">
-                <i class="far fa-comment-alt text-slate-400 text-sm"></i>
-                <span class="text-sm truncate">Web Tasarım Fikirleri</span>
-            </div>
-            <div class="sidebar-item p-3 rounded-xl cursor-pointer transition flex items-center gap-3">
-                <i class="far fa-comment-alt text-slate-400 text-sm"></i>
-                <span class="text-sm truncate">Python Veri Analizi</span>
-            </div>
-            <div class="sidebar-item p-3 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center gap-3">
-                <i class="far fa-comment-alt text-blue-400 text-sm"></i>
-                <span class="text-sm truncate">Chatbot Arayüz Tasarımı</span>
-            </div>
         </div>
         <div class="p-4 border-t border-slate-700">
             <button class="w-full py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm transition">
@@ -52,20 +40,6 @@
         </header>
 
         <section class="flex-1 overflow-y-auto p-6 space-y-6 max-w-5xl mx-auto w-full">
-            <div class="flex gap-4">
-                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center shrink-0">
-                    <i class="fas fa-robot text-xs text-white"></i>
-                </div>
-                <div class="max-w-[70%] glass p-4 rounded-2xl rounded-tl-none text-slate-200 leading-relaxed">
-                    Merhaba! İstediğin modern chatbot arayüzünü senin için hazırladım. Solda geçmiş paneli, sağ üstte profil ikonun hazır. Başka ne eklememi istersin?
-                </div>
-            </div>
-
-            <div class="flex gap-4 justify-end">
-                <div class="max-w-[70%] bg-blue-600 p-4 rounded-2xl rounded-tr-none text-white leading-relaxed">
-                    Harika görünüyor! Özellikle cam efekti ve renk paleti çok hoşuma gitti.
-                </div>
-            </div>
         </section>
 
         <footer class="p-6 max-w-4xl mx-auto w-full">

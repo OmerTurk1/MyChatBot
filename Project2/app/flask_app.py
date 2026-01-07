@@ -20,13 +20,14 @@ hist_file = os.path.join(HISTORY_DIR, "hist.json")
 def ask():
     data = request.json
     user_message = data.get("message")
+    chat_id = data.get("chat_id")
 
     hist = load_history()
 
-    if len(hist)>=10:
-        back_message = hist[:10] # last 10 messages
+    if len(hist[chat_id])>=10:
+        back_message = hist[chat_id][:10] # last 10 messages
     else:
-        back_message = hist
+        back_message = hist[chat_id]
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
@@ -42,7 +43,11 @@ def ask():
 
     answer = response.choices[0].message.content
 
-    save_history(user_message,answer,hist)
+    hist[chat_id].append({
+        "user": user_message,
+        "ai": answer
+    })
+    save_history(hist)
 
     return jsonify({
         "answer": answer
@@ -50,20 +55,28 @@ def ask():
 
 def load_history():
     if not os.path.exists(hist_file) or os.stat(hist_file).st_size == 0:
-        hist = []
+        hist = {}
     else:
         with open(hist_file, "r", encoding="utf-8") as f:
             hist = json.load(f)
     return hist
 
-def save_history(user_message, answer, hist):
-    hist.append({
-        "user": user_message,
-        "ai": answer
-    })
-
+def save_history(hist):
     with open(hist_file, "w", encoding="utf-8") as f:
         json.dump(hist, f, ensure_ascii=False, indent=4)
+
+@app.route("/pastchats", methods=["POST"])
+def pastchats():
+    data = request.json
+    chat_id = data.get("chat")
+    
+    hist = load_history()
+    
+    if chat_id not in hist:
+        hist[chat_id] = []
+        save_history(hist)
+    
+    return jsonify(hist[chat_id])
 
 if __name__ == "__main__":
     app.run(debug=False, port=5000)
